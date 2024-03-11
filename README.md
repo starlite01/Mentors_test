@@ -21,7 +21,7 @@ __str__(): Возврат строкового представления сло
 
 
 Пример использования:
-'''python
+```python
 my_dict = MyDict()
 my_dict['name'] = 'Alice'
 my_dict['age'] = 30
@@ -30,7 +30,7 @@ print('city' in my_dict)  # Вернет False
 del my_dict['age']
 print(my_dict.keys())  # Вернет ['name']
 print(my_dict.values())  # Вернет ['Alice']
-'''
+```
 
 Задача:
 Напишите класс MyDict, который реализует указанные операции. Ваш класс должен обеспечивать аналогичное поведение, как у встроенных словарей в Python.
