@@ -1,10 +1,12 @@
-def get_count_char(str_):
-    letters = str_.lower() 
-    dictionary = {} 
-    for i in letters:  
+
+# почитай про подсказки типов TypeHints Python
+def get_count_char(str_):  # Нейминг, подумай, что именно получает функция на вход?
+    letters = str_.lower()
+    dictionary = {}  # также нейминг, подумай, какие символы будут лежать в этом словаре
+    for i in letters:  # нейминг, i - неочевидно, что это - цифра, буква, список?
         if i.isalpha():  
-            if i in dictionary.keys():  
-                count = dictionary[i]  
+            if i in dictionary.keys():  # Оптимально ли обращаться к атрибуту словаря keys в цикле?
+                count = dictionary[i]  # подумай, нужна ли нам тут доп.переменная count?
                 count += 1  
                 dictionary[i] = count  
             else:  
@@ -12,13 +14,17 @@ def get_count_char(str_):
     return dictionary 
 
 
-def get_percent_correlation(str_):
-    cor = get_count_char(str_) 
+def get_percent_correlation(str_):  # Подумай над названием параметра
+    cor = get_count_char(str_)  # Нейминг
     summary = sum(cor.values()) 
     for key in cor: 
         cor[key] /= summary 
         cor[key] *= 100 
-        cor[key] = round(cor[key]) 
+        cor[key] = round(cor[key])  # Подумай, функция должна
+        # отображать процент частоты буквы в строке от общего числа символов.
+        # Сейчас у тебя это будет просто число, такой результат дает тебе
+        # понять что ты вывел на экран, сколько раз встретил букву
+        # или частоту в процентах {'д': 10}? Устраивает ли тебя текущая логика округления?
     return cor 
 
 
@@ -30,5 +36,6 @@ main_str = """
         Приступим!!!!
     """
 
+# почитай про assert и простые тесты в Python :)
 print(get_count_char(main_str))  # Вывод словаря "Буква" - "Количество"
 # print(get_percent_correlation(main_str))  # Вывод словаря "Буква" - "Процентное соотношение (данная буква/все буквы)"
